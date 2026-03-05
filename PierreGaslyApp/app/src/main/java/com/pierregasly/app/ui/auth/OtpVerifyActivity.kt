@@ -190,14 +190,21 @@ class OtpVerifyActivity : AppCompatActivity() {
                                     role = "customer"
                                 )
 
-                                repo.upsertUserRow(
+                                when (val upsert = repo.upsertUserRow(
                                     accessToken = res.data.accessToken ?: "",
                                     authUserId = userId,
                                     email = email,
                                     fullName = userName,
                                     role = "customer",
                                     phone = intent.getStringExtra(EXTRA_PHONE).orEmpty()
-                                )
+                                )) {
+                                    is Result.Error -> {
+                                        tvError.text = upsert.message
+                                        tvError.visibility = View.VISIBLE
+                                        return@launch
+                                    }
+                                    else -> Unit
+                                }
 
                                 Toast.makeText(this@OtpVerifyActivity, "Email verified. Please login.", Toast.LENGTH_LONG).show()
                                 session.clearSession()
