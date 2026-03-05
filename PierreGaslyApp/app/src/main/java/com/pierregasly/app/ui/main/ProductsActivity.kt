@@ -35,7 +35,6 @@ class ProductsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_products)
         MainNavHelper.setup(this, activeTab = 1)
         findViewById<View>(R.id.btnMenu).setOnClickListener { MenuHelper.show(it, this) }
-        findViewById<TextView>(R.id.tvPageTitle).text = "Products"
 
         loadProducts()
     }

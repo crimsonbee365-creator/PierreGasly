@@ -3,63 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background_light">
 
-    <include layout="@layout/include_main_topbar" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:paddingHorizontal="16dp" android:gravity="center_vertical" android:background="@drawable/bg_hero_gradient">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Rewards" android:textColor="@android:color/white" android:textStyle="bold" android:textSize="20sp"/>
+        <ImageButton android:id="@+id/btnMenu" android:layout_width="38dp" android:layout_height="38dp" android:background="#2DFFFFFF" android:src="@drawable/ic_hamburger_dark" android:contentDescription="Menu"/>
+    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="18dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="18dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Current tier"
-                    android:textColor="@color/text_secondary_light" />
-
-                <TextView
-                    android:id="@+id/tvTier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bronze"
-                    android:textColor="@color/pg_primary"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Available points"
-                    android:textColor="@color/text_secondary_light" />
-
-                <TextView
-                    android:id="@+id/tvPoints"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0 pts"
-                    android:textColor="@color/pg_accent"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="vertical" android:padding="16dp">
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardCornerRadius="18dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Current tier" android:textColor="@color/text_secondary_light"/>
+                <TextView android:id="@+id/tvTier" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bronze" android:textSize="26sp" android:textStyle="bold" android:textColor="@color/pg_primary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Points" android:textColor="@color/text_secondary_light"/>
+                <TextView android:id="@+id/tvPoints" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 pts" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/pg_accent"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
-    <include layout="@layout/include_bottom_nav" />
-
+    <include layout="@layout/include_bottom_nav"/>
 </LinearLayout>

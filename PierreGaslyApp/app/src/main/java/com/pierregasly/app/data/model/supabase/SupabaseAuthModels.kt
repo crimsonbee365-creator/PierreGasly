@@ -32,7 +32,8 @@ data class SupabaseUser(
 )
 
 /**
- * Payload for `public.users` used by mobile app profile sync.
+ * Payload for your `public.users` table.
+ * Includes commonly used profile fields for the web/admin users table.
  */
 data class UserRowUpsert(
     @SerializedName("auth_user_id") val authUserId: String? = null,
@@ -41,8 +42,7 @@ data class UserRowUpsert(
     val phone: String,
     val role: String = "customer",
     val status: String = "active",
-    @SerializedName("email_verified") val emailVerified: Boolean = true,
-    @SerializedName("password_hash") val passwordHash: String = "SUPABASE_AUTH_MANAGED"
+    @SerializedName("email_verified") val emailVerified: Boolean = true
 )
 
 data class UserRow(
