@@ -18,7 +18,7 @@
 
     <style name="Theme.PierreGasly.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/background_dark</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground_logo</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/pg_primary</item>
         <item name="postSplashScreenTheme">@style/Theme.PierreGasly</item>
     </style>

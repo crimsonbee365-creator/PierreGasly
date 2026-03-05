@@ -31,10 +31,17 @@ object SupabaseClient {
         }
 
     private val apikeyInterceptor = Interceptor { chain ->
-        val req = chain.request().newBuilder()
-            .addHeader("apikey", BuildConfig.SUPABASE_ANON_KEY)
-            .addHeader("Authorization", "Bearer ${BuildConfig.SUPABASE_ANON_KEY}")
-            .addHeader("Content-Type", "application/json")
+        val original = chain.request()
+        val hasAuthHeader = !original.header("Authorization").isNullOrBlank()
+
+        val req = original.newBuilder()
+            .header("apikey", BuildConfig.SUPABASE_ANON_KEY)
+            .header("Content-Type", "application/json")
+            .apply {
+                if (!hasAuthHeader) {
+                    header("Authorization", "Bearer ${BuildConfig.SUPABASE_ANON_KEY}")
+                }
+            }
             .build()
         chain.proceed(req)
     }
