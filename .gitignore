@@ -1,0 +1,27 @@
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+
+# --- IntelliJ / Android Studio ---
+.idea/
+*.iml
+
+# --- Gradle / Android ---
+.gradle/
+**/build/
+local.properties
+**/.cxx/
+**/.externalNativeBuild/
+*.hprof
+
+# --- Android generated ---
+**/captures/
+**/*.apk
+**/*.aab
+
+# --- Logs ---
+*.log
+
+# --- (optional) env / secrets ---
+.env
+.env.*
