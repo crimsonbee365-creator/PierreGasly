@@ -2,37 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background_light">
 
-    <include layout="@layout/include_main_topbar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_hero_gradient">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Products" android:textColor="@android:color/white" android:textStyle="bold" android:textSize="20sp"/>
+        <ImageButton android:id="@+id/btnMenu" android:layout_width="38dp" android:layout_height="38dp" android:background="#2DFFFFFF" android:src="@drawable/ic_hamburger_dark" android:contentDescription="Menu"/>
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true"
         android:padding="16dp">
-
         <LinearLayout
             android:id="@+id/productsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/tvProductsEmpty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="24dp"
                 android:text="No products available"
                 android:textColor="@color/text_secondary_light"
-                android:textSize="14sp" />
-
+                android:gravity="center"
+                android:padding="20dp"/>
         </LinearLayout>
     </ScrollView>
 
-    <include layout="@layout/include_bottom_nav" />
-
+    <include layout="@layout/include_bottom_nav"/>
 </LinearLayout>
