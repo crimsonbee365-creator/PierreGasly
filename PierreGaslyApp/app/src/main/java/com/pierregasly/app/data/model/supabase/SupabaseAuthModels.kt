@@ -33,15 +33,16 @@ data class SupabaseUser(
 
 /**
  * Payload for your `public.users` table.
- * Your schema (based on earlier errors) expects `name`, `email`, `phone`.
+ * Includes commonly used profile fields for the web/admin users table.
  */
 data class UserRowUpsert(
-    @SerializedName("auth_user_id") val authUserId: String,
-    @SerializedName("name") val name: String,
+    @SerializedName("auth_user_id") val authUserId: String? = null,
+    @SerializedName("full_name") val fullName: String,
     val email: String,
     val phone: String,
     val role: String = "customer",
-    val status: String = "active"
+    val status: String = "active",
+    @SerializedName("email_verified") val emailVerified: Boolean = true
 )
 
 
