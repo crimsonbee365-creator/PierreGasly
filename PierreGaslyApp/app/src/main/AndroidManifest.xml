@@ -30,6 +30,10 @@
         <activity android:name=".ui.auth.OtpVerifyActivity" android:exported="false" />
 
         <activity android:name=".ui.main.DashboardActivity" android:exported="false" />
+        <activity android:name=".ui.main.ProductsActivity" android:exported="false" />
+        <activity android:name=".ui.main.OrdersActivity" android:exported="false" />
+        <activity android:name=".ui.main.RewardsActivity" android:exported="false" />
+        <activity android:name=".ui.main.ProfileActivity" android:exported="false" />
         <activity android:name=".ui.main.AboutActivity" android:exported="false" />
         <activity android:name=".ui.main.ContactActivity" android:exported="false" />
 
