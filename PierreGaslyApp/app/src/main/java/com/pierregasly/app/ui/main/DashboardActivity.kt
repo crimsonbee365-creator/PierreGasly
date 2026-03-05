@@ -34,8 +34,8 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
         MainNavHelper.setup(this, activeTab = 0)
 
-        findViewById<View?>(R.id.btnMenu)?.setOnClickListener { MenuHelper.show(it, this) }
-        findViewById<TextView?>(R.id.tvPageTitle)?.text = "Dashboard"
+        findViewById<View>(R.id.btnMenu).setOnClickListener { MenuHelper.show(it, this) }
+        findViewById<TextView>(R.id.tvPageTitle).text = "Dashboard"
 
         val email = session.getUserEmail().orEmpty()
         val name = session.getUserName().orEmpty().ifBlank { email.substringBefore('@').replaceFirstChar { it.uppercase() } }

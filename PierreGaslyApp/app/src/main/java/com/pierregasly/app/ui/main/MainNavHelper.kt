@@ -19,10 +19,8 @@ object MainNavHelper {
         )
 
         tabs.forEachIndexed { idx, (iconId, labelId, cls) ->
-            val icon = activity.findViewById<ImageView?>(iconId)
-            val label = activity.findViewById<TextView?>(labelId)
-            if (icon == null || label == null) return@forEachIndexed
-
+            val icon = activity.findViewById<ImageView>(iconId)
+            val label = activity.findViewById<TextView>(labelId)
             val selected = idx == activeTab
             val tint = activity.getColor(if (selected) R.color.pg_primary else R.color.text_secondary_light)
             icon.setColorFilter(tint)

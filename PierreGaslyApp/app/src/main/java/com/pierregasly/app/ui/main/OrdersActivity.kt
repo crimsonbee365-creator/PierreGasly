@@ -3,7 +3,6 @@ package com.pierregasly.app.ui.main
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.pierregasly.app.R
 import com.pierregasly.app.ui.auth.LoginActivity
@@ -26,7 +25,6 @@ class OrdersActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_orders)
         MainNavHelper.setup(this, activeTab = 2)
-        findViewById<View?>(R.id.btnMenu)?.setOnClickListener { MenuHelper.show(it, this) }
-        findViewById<TextView?>(R.id.tvPageTitle)?.text = "Orders"
+        findViewById<View>(R.id.btnMenu).setOnClickListener { MenuHelper.show(it, this) }
     }
 }

@@ -26,8 +26,7 @@ class ProfileActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_profile)
         MainNavHelper.setup(this, activeTab = 4)
-        findViewById<View?>(R.id.btnMenu)?.setOnClickListener { MenuHelper.show(it, this) }
-        findViewById<TextView?>(R.id.tvPageTitle)?.text = "Profile"
+        findViewById<View>(R.id.btnMenu).setOnClickListener { MenuHelper.show(it, this) }
 
         findViewById<TextView>(R.id.tvProfileName).text = session.getUserName().ifBlank { "Customer" }
         findViewById<TextView>(R.id.tvProfileEmail).text = session.getUserEmail().ifBlank { "-" }
