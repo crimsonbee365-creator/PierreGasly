@@ -32,18 +32,44 @@ data class SupabaseUser(
 )
 
 /**
- * Payload for your `public.users` table.
- * Your schema (based on earlier errors) expects `name`, `email`, `phone`.
+ * Payload for `public.users` used by mobile app profile sync.
  */
 data class UserRowUpsert(
-    @SerializedName("auth_user_id") val authUserId: String,
-    @SerializedName("name") val name: String,
+    @SerializedName("auth_user_id") val authUserId: String? = null,
+    @SerializedName("full_name") val fullName: String,
     val email: String,
     val phone: String,
     val role: String = "customer",
-    val status: String = "active"
+    val status: String = "active",
+    @SerializedName("email_verified") val emailVerified: Boolean = true,
+    @SerializedName("password_hash") val passwordHash: String = "SUPABASE_AUTH_MANAGED"
 )
 
+data class UserRow(
+    @SerializedName("user_id") val userId: Int,
+    val email: String,
+    @SerializedName("full_name") val fullName: String? = null,
+    val phone: String? = null,
+    val role: String? = null,
+    val status: String? = null
+)
+
+data class ProductRow(
+    @SerializedName("product_id") val productId: Int,
+    @SerializedName("product_name") val productName: String,
+    @SerializedName("size_kg") val sizeKg: Int? = null,
+    val price: Double? = null,
+    @SerializedName("product_image") val productImage: String? = null,
+    @SerializedName("stock_quantity") val stockQuantity: Int? = null,
+    @SerializedName("is_active") val isActive: Boolean? = null
+)
+
+data class UserRewardRow(
+    @SerializedName("user_id") val userId: Int,
+    @SerializedName("total_points") val totalPoints: Int? = null,
+    @SerializedName("redeemed_points") val redeemedPoints: Int? = null,
+    val tier: String? = null
+)
 
 data class SupabaseVerifyOtpRequest(
     val type: String,

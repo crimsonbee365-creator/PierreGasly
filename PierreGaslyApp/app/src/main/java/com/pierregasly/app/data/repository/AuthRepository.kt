@@ -5,6 +5,7 @@ import com.pierregasly.app.data.model.supabase.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
+import java.util.Base64
 
 /**
  * Phase 1 repository:
@@ -144,10 +145,11 @@ class AuthRepository {
     ): Result<Unit> = withContext(Dispatchers.IO) {
         configErrorOrNull()?.let { return@withContext it }
         try {
+            val resolvedAuthId = authUserId.ifBlank { extractUserIdFromJwt(accessToken).orEmpty() }
             val payload = listOf(
                 UserRowUpsert(
-                    authUserId = resolvedAuthId,
-                    name = fullName.ifBlank { email.substringBefore('@') },
+                    authUserId = resolvedAuthId.ifBlank { null },
+                    fullName = fullName.ifBlank { email.substringBefore('@') },
                     email = email,
                     phone = phone,
                     role = role
