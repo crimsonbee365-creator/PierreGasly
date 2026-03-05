@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface SupabaseRestService {
 
-    @POST("rest/v1/users?on_conflict=auth_user_id")
+    @POST("rest/v1/users?on_conflict=email")
     suspend fun upsertUser(
         @Header("Authorization") bearer: String,
         @Header("Prefer") prefer: String = "resolution=merge-duplicates,return=representation",
