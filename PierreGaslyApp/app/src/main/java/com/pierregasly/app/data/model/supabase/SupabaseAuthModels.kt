@@ -45,6 +45,31 @@ data class UserRowUpsert(
     @SerializedName("email_verified") val emailVerified: Boolean = true
 )
 
+data class UserRow(
+    @SerializedName("user_id") val userId: Int,
+    val email: String,
+    @SerializedName("full_name") val fullName: String? = null,
+    val phone: String? = null,
+    val role: String? = null,
+    val status: String? = null
+)
+
+data class ProductRow(
+    @SerializedName("product_id") val productId: Int,
+    @SerializedName("product_name") val productName: String,
+    @SerializedName("size_kg") val sizeKg: Int? = null,
+    val price: Double? = null,
+    @SerializedName("product_image") val productImage: String? = null,
+    @SerializedName("stock_quantity") val stockQuantity: Int? = null,
+    @SerializedName("is_active") val isActive: Boolean? = null
+)
+
+data class UserRewardRow(
+    @SerializedName("user_id") val userId: Int,
+    @SerializedName("total_points") val totalPoints: Int? = null,
+    @SerializedName("redeemed_points") val redeemedPoints: Int? = null,
+    val tier: String? = null
+)
 
 data class SupabaseVerifyOtpRequest(
     val type: String,
